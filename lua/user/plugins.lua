@@ -42,6 +42,9 @@ return require('packer').startup(function(use)
   -- Packer Plugin
   use 'wbthomason/packer.nvim'
 
+  -- Basic Plugins
+  use 'nvim-tree/nvim-web-devicons'
+
   -- Appereance
   use 'folke/tokyonight.nvim'
   use 'goolord/alpha-nvim'
