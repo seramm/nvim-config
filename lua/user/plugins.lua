@@ -52,6 +52,9 @@ return require('packer').startup(function(use)
   -- Help
   use 'folke/which-key.nvim'
 
+  --Syntax
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
