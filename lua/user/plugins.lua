@@ -42,8 +42,14 @@ return require('packer').startup(function(use)
   -- Packer Plugin
   use 'wbthomason/packer.nvim'
 
+
   -- Basic Plugins
   use 'nvim-tree/nvim-web-devicons'
+
+  -- Language Server Protocol
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
 
   -- Appereance
   use 'folke/tokyonight.nvim'
@@ -51,6 +57,7 @@ return require('packer').startup(function(use)
 
   -- Help
   use 'folke/which-key.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
