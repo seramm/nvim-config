@@ -58,6 +58,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
+  -- Snippets
+  use {"L3MON4D3/LuaSnip", tag = "v1.2.*", run = "make install_jsregexp"}
+
   -- Appereance
   use 'folke/tokyonight.nvim'
   use 'goolord/alpha-nvim'

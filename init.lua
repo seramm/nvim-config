@@ -8,5 +8,7 @@ require "user.plugins"
 require "user.alpha"
 -- LSP
 require "user.lsp.mason"
+--Completition
+require "user.lsp.cmp"
 -- Help
 require "user.whichkey"
