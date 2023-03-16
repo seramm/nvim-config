@@ -6,6 +6,7 @@ require "user.plugins"
 
 -- Appereance
 require "user.alpha"
+require "user.theme"
 -- LSP
 require "user.lsp.mason"
 require "user.lsp.lspconfig"
