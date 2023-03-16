@@ -42,8 +42,24 @@ return require('packer').startup(function(use)
   -- Packer Plugin
   use 'wbthomason/packer.nvim'
 
+
   -- Basic Plugins
   use 'nvim-tree/nvim-web-devicons'
+
+  -- Language Server Protocol
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
+
+  -- Completition
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
+  -- Snippets
+  use {"L3MON4D3/LuaSnip", tag = "v1.2.*", run = "make install_jsregexp"}
 
   -- Appereance
   use 'folke/tokyonight.nvim'
