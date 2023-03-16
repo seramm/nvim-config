@@ -23,7 +23,8 @@ treesitter.setup {
     "markdown",
     "python",
     "regex",
-    "toml"
+    "toml",
+    "vim"
   },
   sync_installed = true,
   auto_install = true,

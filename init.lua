@@ -10,7 +10,9 @@ require "user.theme"
 -- LSP
 require "user.lsp.mason"
 require "user.lsp.lspconfig"
---Completition
+-- Completition
 require "user.lsp.cmp"
+-- Syntax
+require "user.treesitter"
 -- Help
 require "user.whichkey"
