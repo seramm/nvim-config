@@ -10,15 +10,16 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 
 local plugins = {
-  -- Basic Plugins
+-- Basic Plugins
   {'nvim-tree/nvim-web-devicons'},
 
-  -- User Interface
+-- User Interface
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -36,13 +37,14 @@ local plugins = {
   {
     'nvim-telescope/telescope.nvim',
     lazy = true,
+    cmd = "Telescope",
     tag = "0.1.1",
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
   },
 
-  -- Language Server Protocol
+-- Language Server Protocol
   {
     'williamboman/mason.nvim',
     lazy = true,
@@ -69,7 +71,7 @@ local plugins = {
     end,
   },
 
-  -- Completition
+-- Completition
   {
     'hrsh7th/nvim-cmp',
     dependecies = {
@@ -88,26 +90,35 @@ local plugins = {
   {'hrsh7th/cmp-path', lazy = true},
   {'hrsh7th/cmp-cmdline', lazy = true},
 
-  -- Snippets
+-- Snippets
   {
     "L3MON4D3/LuaSnip",
-    lazy = true,
     tag = "v1.2.1",
     build = "make install_jsregexp",
   },
 
-  -- Help
+-- Help
   {
     'folke/which-key.nvim',
+    cmd = "WhichKey",
     config = function()
       require "user.whichkey"
     end,
   },
 
-  --Syntax
+--Syntax
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    cmd = {
+      "TSInstall",
+      "TSUninstall",
+      "TSUpdate",
+      "TSUpdateSync",
+      "TSInstallInfo",
+      "TSInstallSync",
+      "TSInstallFromGrammar",
+    },
     config = function()
       require "user.treesitter"
     end,
@@ -115,12 +126,14 @@ local plugins = {
   {
     "windwp/nvim-autopairs",
     lazy = true,
+    event = "InsertEnter",
     config = function()
       require "user.autopairs"
     end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = "User FileOpened",
     config = function()
       require "user.blankline"
     end,
