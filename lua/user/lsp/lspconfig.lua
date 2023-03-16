@@ -10,9 +10,10 @@ end
 
 
 local on_attach = function(client, bufnr)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "jump to definition"})
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
+  local opts = { noremap = true, silent = true }
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
   if client.server_capabilities.documentFormattingProvider then
     map("n", "<leader>f", vim.lsp.buf.format, {desc = "format code"})
