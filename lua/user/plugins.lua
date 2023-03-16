@@ -1,88 +1,137 @@
--- Packer & Plugins Config
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
+-- Lazy & Plugins Config
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local fn = vim.fn
+vim.g.mapleader = " "
 
-local ensure_packer = function()
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+local plugins = {
+  -- Basic Plugins
+  {'nvim-tree/nvim-web-devicons'},
 
-local packer_bootstrap = ensure_packer()
-
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
-packer.init {
-  -- snapshot = "july-24",
-  snapshot_path = fn.stdpath "config" .. "/snapshots",
-  max_jobs = 50,
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+  -- User Interface
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require "user.theme"
     end,
-    prompt_border = "rounded", -- Border style of prompt popups.
+  },
+  {
+    'goolord/alpha-nvim',
+    config = function()
+      require "user.alpha"
+    end,
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    lazy = true,
+    tag = "0.1.1",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+  },
+
+  -- Language Server Protocol
+  {
+    'williamboman/mason.nvim',
+    lazy = true,
+    config = function()
+      require "user.lsp.mason"
+    end,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    lazy = true,
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim'
+    },
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    lazy = true,
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'williamboman/mason.nvim'
+    },
+    config = function()
+      require "user.lsp.lspconfig"
+    end,
+  },
+
+  -- Completition
+  {
+    'hrsh7th/nvim-cmp',
+    dependecies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+    },
+    config = function()
+      require "user.lsp.cmp"
+    end,
+  },
+
+  {'hrsh7th/cmp-nvim-lsp', lazy = true},
+  {'hrsh7th/cmp-buffer', lazy = true},
+  {'hrsh7th/cmp-path', lazy = true},
+  {'hrsh7th/cmp-cmdline', lazy = true},
+
+  -- Snippets
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+    tag = "v1.2.1",
+    build = "make install_jsregexp",
+  },
+
+  -- Help
+  {
+    'folke/which-key.nvim',
+    config = function()
+      require "user.whichkey"
+    end,
+  },
+
+  --Syntax
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      require "user.treesitter"
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    lazy = true,
+    config = function()
+      require "user.autopairs"
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require "user.blankline"
+    end,
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = true,
+    config = function()
+      require "user.colorizer"
+    end,
   },
 }
 
-
-return require('packer').startup(function(use)
-  -- Packer Plugin
-  use 'wbthomason/packer.nvim'
-
-
-  -- Basic Plugins
-  use 'nvim-tree/nvim-web-devicons'
-
-  -- Impatient (Performance)
-  use 'lewis6991/impatient.nvim'
-
-  -- User Interface
-  use 'folke/tokyonight.nvim'
-  use 'goolord/alpha-nvim'
-  use {'nvim-telescope/telescope.nvim', tag = '0.1.1'}
-  use 'nvim-lua/plenary.nvim' -- Required by Telescope
-
-  -- Language Server Protocol
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-
-  -- Completition
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-
-  -- Snippets
-  use {"L3MON4D3/LuaSnip", tag = "v1.2.*", run = "make install_jsregexp"}
-
-  -- Help
-  use 'folke/which-key.nvim'
-
-  --Syntax
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use "windwp/nvim-autopairs"
-  use "lukas-reineke/indent-blankline.nvim"
-  use "norcalli/nvim-colorizer.lua"
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
-
+require("lazy").setup(plugins)
