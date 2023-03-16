@@ -49,6 +49,12 @@ return require('packer').startup(function(use)
   -- Impatient (Performance)
   use 'lewis6991/impatient.nvim'
 
+  -- User Interface
+  use 'folke/tokyonight.nvim'
+  use 'goolord/alpha-nvim'
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.1'}
+  use 'nvim-lua/plenary.nvim' -- Required by Telescope
+
   -- Language Server Protocol
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
@@ -63,10 +69,6 @@ return require('packer').startup(function(use)
 
   -- Snippets
   use {"L3MON4D3/LuaSnip", tag = "v1.2.*", run = "make install_jsregexp"}
-
-  -- Appereance
-  use 'folke/tokyonight.nvim'
-  use 'goolord/alpha-nvim'
 
   -- Help
   use 'folke/which-key.nvim'
