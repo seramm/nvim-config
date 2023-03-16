@@ -18,10 +18,10 @@ local on_attach = function(client, bufnr)
     map("n", "<leader>f", vim.lsp.buf.format, {desc = "format code"})
   end
 end
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.offsetEncoding = { "utf-16" }
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 nvim_lsp.lua_ls.setup({
+  capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
 		Lua = {
