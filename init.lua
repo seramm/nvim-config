@@ -18,5 +18,6 @@ require "user.lsp.cmp"
 require "user.treesitter"
 require "user.autopairs"
 require "user.blankline"
+require "user.colorizer"
 -- Help
 require "user.whichkey"
