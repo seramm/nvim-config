@@ -17,5 +17,6 @@ require "user.lsp.cmp"
 -- Syntax
 require "user.treesitter"
 require "user.autopairs"
+require "user.blankline"
 -- Help
 require "user.whichkey"
