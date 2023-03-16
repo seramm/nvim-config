@@ -46,6 +46,9 @@ return require('packer').startup(function(use)
   -- Basic Plugins
   use 'nvim-tree/nvim-web-devicons'
 
+  -- Impatient (Performance)
+  use 'lewis6991/impatient.nvim'
+
   -- Language Server Protocol
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
