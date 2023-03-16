@@ -85,8 +85,13 @@ local mappings = {
     w = { "<cmd>w<cr>", "Save file" },
     a = { "<cmd>wa<cr>", "Save all files" },
   },
+  f = {
+    name = "Telescope",
+    f = { "<cmd>Telescope find_files<cr>", "Find files"},
+    b = { "<cmd>Telescope buffers<cr>", "Buffers"},
+    h = { "<cmd>Telescope help_tags<cr>", "Help tags"},
+  },
 }
-
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
