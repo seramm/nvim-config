@@ -16,6 +16,7 @@ return {
     config = function()
       require "user.alpha"
     end,
+    event = "VimEnter",
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -29,13 +30,6 @@ return {
 
 -- Language Server Protocol
   {
-    'williamboman/mason.nvim',
-    lazy = true,
-    config = function()
-      require "user.lsp.mason"
-    end,
-  },
-  {
     'neovim/nvim-lspconfig',
     lazy = true,
     dependencies = {
@@ -45,29 +39,37 @@ return {
   {
     'williamboman/mason-lspconfig.nvim',
     lazy = true,
+    cmd = {"LspInstall", "LspUninstall"},
     dependencies = {
-      'neovim/nvim-lspconfig',
       'williamboman/mason.nvim'
     },
     config = function()
       require "user.lsp.lspconfig"
     end,
   },
+  {
+    'williamboman/mason.nvim',
+    lazy = true,
+    cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonLog"},
+    config = function()
+      require "user.lsp.mason"
+    end,
+  },
 
 -- Completition
   {
     'hrsh7th/nvim-cmp',
-    dependecies = {
+    config = function()
+      require "user.lsp.cmp"
+    end,
+    event = "InsertEnter",
+     dependecies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
     },
-    config = function()
-      require "user.lsp.cmp"
-    end,
-    event = "InsertEnter",
-  },
+ },
 
   {'hrsh7th/cmp-nvim-lsp', lazy = true},
   {'hrsh7th/cmp-buffer', lazy = true},
@@ -85,6 +87,8 @@ return {
   {
     'folke/which-key.nvim',
     cmd = "WhichKey",
+    event = "VeryLazy",
+    key = "<leader>",
     config = function()
       require "user.whichkey"
     end,
@@ -106,10 +110,10 @@ return {
     config = function()
       require "user.treesitter"
     end,
+    event = "User FileOpened",
   },
   {
     "windwp/nvim-autopairs",
-    lazy = true,
     event = "InsertEnter",
     config = function()
       require "user.autopairs"
