@@ -66,7 +66,7 @@ return {
     config = function()
       require "user.lsp.cmp"
     end,
-    event = {"InsertEnter", "CmdLineEnter"},
+    event = "InsertEnter",
   },
 
   {'hrsh7th/cmp-nvim-lsp', lazy = true},
