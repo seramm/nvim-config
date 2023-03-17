@@ -1,8 +1,8 @@
 return {
--- Basic Plugins
+-- --------------- Basic Plugins ---------------
   {'nvim-tree/nvim-web-devicons'},
 
--- User Interface
+-- --------------- User Interface ---------------
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -28,7 +28,7 @@ return {
     },
   },
 
--- Language Server Protocol
+-- --------------- Language Server Protocol ---------------
   {
     'neovim/nvim-lspconfig',
     lazy = true,
@@ -56,7 +56,7 @@ return {
     end,
   },
 
--- Completition
+-- --------------- Completition ---------------
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -76,14 +76,14 @@ return {
   {'hrsh7th/cmp-path', lazy = true},
   {'hrsh7th/cmp-cmdline', lazy = true},
 
--- Snippets
+-- --------------- Snippets ---------------
   {
     "L3MON4D3/LuaSnip",
     tag = "v1.2.1",
     build = "make install_jsregexp",
   },
 
--- Help
+-- --------------- Help ---------------
   {
     'folke/which-key.nvim',
     cmd = "WhichKey",
@@ -94,7 +94,7 @@ return {
     end,
   },
 
---Syntax
+-- --------------- Syntax ---------------
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
