@@ -27,6 +27,13 @@ return {
       "nvim-lua/plenary.nvim"
     },
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require "user.lualine"
+    end,
+    event = "VimEnter",
+  },
 
 -- --------------- Language Server Protocol ---------------
   {
