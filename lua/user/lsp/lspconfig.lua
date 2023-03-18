@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
   if client.server_capabilities.documentFormattingProvider then
-    map("n", "<leader>f", vim.lsp.buf.format, {desc = "format code"})
+    vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {desc = "format code"})
   end
 end
 local capabilities = cmp_nvim_lsp.default_capabilities()
