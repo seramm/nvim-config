@@ -70,7 +70,7 @@ return {
     config = function()
       require "user.lsp.cmp"
     end,
-    event = "InsertEnter",
+    event = {"InsertEnter", "CmdlineEnter"},
      dependecies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
@@ -82,7 +82,11 @@ return {
   {'hrsh7th/cmp-nvim-lsp', lazy = true},
   {'hrsh7th/cmp-buffer', lazy = true},
   {'hrsh7th/cmp-path', lazy = true},
-  {'hrsh7th/cmp-cmdline', lazy = true},
+  {
+    'hrsh7th/cmp-cmdline',
+    lazy = true,
+    event = "CmdlineEnter",
+  },
 
 -- --------------- Snippets ---------------
   {
