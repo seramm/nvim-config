@@ -122,7 +122,7 @@ return {
     config = function()
       require "user.treesitter"
     end,
-    event = "User FileOpened",
+    event = {"BufReadPre", "BufNewFile"},
   },
   {
     "windwp/nvim-autopairs",
@@ -133,7 +133,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "User FileOpened",
+    event = {"BufReadPre", "BufNewFile"},
     config = function()
       require "user.blankline"
     end,
