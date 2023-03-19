@@ -34,6 +34,14 @@ return {
     end,
     event = "VimEnter",
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require "user.nvimtree"
+    end,
+    cmd = {"NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle"},
+    event = "User DirOpened",
+  },
 
 -- --------------- Language Server Protocol ---------------
   {
