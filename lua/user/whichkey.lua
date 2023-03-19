@@ -92,6 +92,7 @@ local mappings = {
     b = { "<cmd>Telescope buffers<cr>", "Buffers"},
     h = { "<cmd>Telescope help_tags<cr>", "Help tags"},
   },
+  e = { "<cmd>NvimTreeToggle<cr>", "Open Tree"},
 }
 
 which_key.setup(setup)
