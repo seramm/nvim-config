@@ -95,6 +95,15 @@ return {
     build = "make install_jsregexp",
   },
 
+-- --------------- Git ---------------
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require "user.gitsigns"
+    end,
+    event = {"BufReadPre", "BufNewFile"},
+    cmd = "Gitsigns",
+  },
 -- --------------- Help ---------------
   {
     'folke/which-key.nvim',
