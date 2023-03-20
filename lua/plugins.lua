@@ -45,11 +45,14 @@ return {
 
 -- --------------- Language Server Protocol ---------------
   {
-    'neovim/nvim-lspconfig',
+    'williamboman/mason.nvim',
     lazy = true,
-    event = {"BufReadPre", "BufNewFile"},
+    cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonLog"},
+    config = function()
+      require "user.lsp.mason"
+    end,
     dependencies = {
-      'williamboman/mason-lspconfig.nvim'
+      "williamboman/mason-lspconfig.nvim",
     },
   },
   {
@@ -57,19 +60,20 @@ return {
     lazy = true,
     cmd = {"LspInstall", "LspUninstall"},
     dependencies = {
-      'williamboman/mason.nvim'
+      'neovim/nvim-lspconfig'
     },
     config = function()
       require "user.lsp.lspconfig"
     end,
   },
   {
-    'williamboman/mason.nvim',
+    'neovim/nvim-lspconfig',
     lazy = true,
-    cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonLog"},
-    config = function()
-      require "user.lsp.mason"
-    end,
+    event = {"BufReadPre", "BufNewFile"},
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+      'williamboman/mason.nvim',
+    },
   },
 
 -- --------------- Completition ---------------
