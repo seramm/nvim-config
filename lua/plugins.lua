@@ -35,6 +35,14 @@ return {
     event = "VimEnter",
   },
   {
+    "akinsho/bufferline.nvim",
+    branch = "main",
+    event = "VimEnter",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    }
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     config = function()
       require "user.nvimtree"
