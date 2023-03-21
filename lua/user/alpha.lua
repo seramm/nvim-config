@@ -27,7 +27,6 @@ local header0 = {
 
 dashboard.section.header.val = header0
 dashboard.section.buttons.val = {
-  dashboard.button("e", "  >  New file", ":ene <BAR> starinsert <CR>"),
   dashboard.button("ff","  >  Search file", "<cmd>Telescope find_files<CR>"),
   dashboard.button("q", "󰅚  >  Quit NeoVim", "<cmd>qa<CR>"),
 
