@@ -18,6 +18,11 @@ keymap("n", "<S-h>", "<cmd>bprevious<cr>", opts)
 keymap("n", "<S-k>", "<cmd>bprevious<cr>", opts)
 keymap("n", "<S-l>", "<cmd>bnext<cr>", opts)
 keymap("n", "<S-j>", "<cmd>bnext<cr>", opts)
+-- Split navigation
+keymap("n", "<m-h>", "<C-w>h", opts)
+keymap("n", "<m-j>", "<C-w>j", opts)
+keymap("n", "<m-k>", "<C-w>k", opts)
+keymap("n", "<m-l>", "<C-w>l", opts)
 -- Split resize
 keymap("n", "<C-k>", ":resize -2<CR>", opts)
 keymap("n", "<C-j>", ":resize +2<CR>", opts)
