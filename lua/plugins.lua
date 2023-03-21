@@ -8,13 +8,13 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require "user.theme"
+      require "ui.theme"
     end,
   },
   {
     'goolord/alpha-nvim',
     config = function()
-      require "user.alpha"
+      require "ui.alpha"
     end,
     event = "VimEnter",
   },
@@ -30,7 +30,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require "user.lualine"
+      require "ui.lualine"
     end,
     event = "VimEnter",
   },
@@ -42,13 +42,13 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require "user.bufferline"
+      require "ui.bufferline"
     end,
   },
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
-      require "user.nvimtree"
+      require "ui.nvimtree"
     end,
     cmd = {"NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle"},
     event = "User DirOpened",
@@ -60,7 +60,7 @@ return {
     lazy = true,
     cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonLog"},
     config = function()
-      require "user.lsp.mason"
+      require "lsp.mason"
     end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
@@ -74,7 +74,7 @@ return {
       'neovim/nvim-lspconfig'
     },
     config = function()
-      require "user.lsp.lspconfig"
+      require "lsp.lspconfig"
     end,
   },
   {
@@ -91,7 +91,7 @@ return {
   {
     'hrsh7th/nvim-cmp',
     config = function()
-      require "user.lsp.cmp"
+      require "lsp.cmp"
     end,
     event = {"InsertEnter", "CmdlineEnter"},
      dependencies = {
@@ -122,7 +122,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require "user.gitsigns"
+      require "other.gitsigns"
     end,
     event = {"BufReadPre", "BufNewFile"},
     cmd = "Gitsigns",
@@ -134,7 +134,7 @@ return {
     event = "VeryLazy",
     key = "<leader>",
     config = function()
-      require "user.whichkey"
+      require "ui.whichkey"
     end,
   },
 
@@ -152,7 +152,7 @@ return {
       "TSInstallFromGrammar",
     },
     config = function()
-      require "user.treesitter"
+      require "syntax.treesitter"
     end,
     event = {"BufReadPre", "BufNewFile"},
   },
@@ -160,21 +160,21 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require "user.autopairs"
+      require "syntax.autopairs"
     end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = {"BufReadPre", "BufNewFile"},
     config = function()
-      require "user.blankline"
+      require "syntax.blankline"
     end,
   },
   {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
     config = function()
-      require "user.colorizer"
+      require "syntax.colorizer"
     end,
   },
 }
