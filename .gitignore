@@ -1,2 +1,3 @@
 # Packer compiles forlder
 lazy-lock.json
+.luarc.json
