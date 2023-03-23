@@ -149,6 +149,12 @@ return {
       require("ui.whichkey")
     end,
   },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
 
   -- --------------- Syntax ---------------
   {
