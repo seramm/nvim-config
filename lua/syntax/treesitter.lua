@@ -5,7 +5,7 @@ if not status_ok then
   return
 end
 
-treesitter.setup {
+treesitter.setup({
   ensure_installed = {
     "bash",
     "bibtex",
@@ -24,7 +24,7 @@ treesitter.setup {
     "python",
     "regex",
     "toml",
-    "vim"
+    "vim",
   },
   sync_installed = true,
   auto_install = true,
@@ -34,5 +34,4 @@ treesitter.setup {
     disable = {},
     additional_vim_regex_highlighting = false,
   },
-}
-
+})

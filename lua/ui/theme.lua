@@ -26,4 +26,4 @@ local config = {
 
 tokyonight.setup(config)
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])

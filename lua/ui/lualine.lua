@@ -5,8 +5,8 @@ end
 
 local config = {
   options = {
-    theme = "tokyonight"
-  }
+    theme = "tokyonight",
+  },
 }
 
 lualine.setup(config)

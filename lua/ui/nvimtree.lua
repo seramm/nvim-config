@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 local config = {
-auto_reload_on_write = true,
+  auto_reload_on_write = true,
   hijack_cursor = false,
   hijack_unnamed_buffer_when_opening = true,
   reload_on_bufenter = true,

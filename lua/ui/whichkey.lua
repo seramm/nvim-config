@@ -35,15 +35,15 @@ local setup = {
     group = "+",
   },
   popup_mappings = {
-    scroll_down = '<c-d>',
-    scroll_up = '<c-u>',
+    scroll_down = "<c-d>",
+    scroll_up = "<c-u>",
   },
   window = {
     border = "rounded", -- none, single, double, shadow
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
-    winblend = 0
+    winblend = 0,
   },
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -52,7 +52,7 @@ local setup = {
     align = "left", -- align columns left, center or right
   },
   ignore_missing = true,
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "},
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
   show_help = false,
   show_keys = false,
   triggers = "auto",
@@ -87,12 +87,12 @@ local mappings = {
   },
   f = {
     name = "Telescope",
-    f = { "<cmd>Telescope find_files<cr>", "Find files"},
-    g = { "<cmd>Telescope live_grep<cr>", "Live grep"},
-    b = { "<cmd>Telescope buffers<cr>", "Buffers"},
-    h = { "<cmd>Telescope help_tags<cr>", "Help tags"},
+    f = { "<cmd>Telescope find_files<cr>", "Find files" },
+    g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
   },
-  e = { "<cmd>NvimTreeToggle<cr>", "Open Tree"},
+  e = { "<cmd>NvimTreeToggle<cr>", "Open Tree" },
 }
 
 which_key.setup(setup)

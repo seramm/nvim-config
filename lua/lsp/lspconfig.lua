@@ -8,7 +8,6 @@ if not status_ok1 then
   return
 end
 
-
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, noremap = true, silent = true }
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -22,11 +21,11 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 nvim_lsp.lua_ls.setup({
   capabilities = capabilities,
-	on_attach = on_attach,
+  on_attach = on_attach,
 })
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
