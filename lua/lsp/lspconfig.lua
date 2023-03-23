@@ -10,13 +10,12 @@ end
 
 
 local on_attach = function(client, bufnr)
-  local opts = { noremap = true, silent = true }
+  local opts = { buffer = bufnr, noremap = true, silent = true }
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-
-  if client.server_capabilities.documentFormattingProvider then
-    vim.keymap.set("n", "<leader>s", vim.lsp.buf.format, {desc = "format code"})
+  if client.name == "lua_ls" then
+    client.server_capabilities.documentFormattingProvider = false
   end
 end
 local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -24,33 +23,6 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 nvim_lsp.lua_ls.setup({
   capabilities = capabilities,
 	on_attach = on_attach,
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = {
-					"vim",
-					"use",
-					--AwesomeWm
-					"awesome",
-					"client",
-					"root",
-					"screen",
-					"tag",
-				},
-			},
-
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = {
-					vim.api.nvim_get_runtime_file("", true),
-					["/usr/share/nvim/runtime/lua"] = true,
-					["/usr/share/nvim/runtime/lua/lsp"] = true,
-					["/usr/share/awesome/lib"] = true,
-				},
-				checkThirdParty = false,
-			},
-		},
-	},
 })
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

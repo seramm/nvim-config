@@ -1,36 +1,36 @@
 return {
--- --------------- Basic Plugins ---------------
-  {'nvim-tree/nvim-web-devicons'},
+  -- --------------- Basic Plugins ---------------
+  { "nvim-tree/nvim-web-devicons" },
 
--- --------------- User Interface ---------------
+  -- --------------- User Interface ---------------
   {
-    'folke/tokyonight.nvim',
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require "ui.theme"
+      require("ui.theme")
     end,
   },
   {
-    'goolord/alpha-nvim',
+    "goolord/alpha-nvim",
     config = function()
-      require "ui.alpha"
+      require("ui.alpha")
     end,
     event = "VimEnter",
   },
   {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
     lazy = true,
     cmd = "Telescope",
     tag = "0.1.1",
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
     },
   },
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require "ui.lualine"
+      require("ui.lualine")
     end,
     event = "VimEnter",
   },
@@ -42,106 +42,118 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require "ui.bufferline"
+      require("ui.bufferline")
     end,
   },
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
-      require "ui.nvimtree"
+      require("ui.nvimtree")
     end,
-    cmd = {"NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle"},
+    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
     event = "User DirOpened",
   },
 
--- --------------- Language Server Protocol ---------------
+  -- --------------- Language Server Protocol ---------------
   {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     lazy = true,
-    cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonLog"},
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" },
     config = function()
-      require "lsp.mason"
+      require("lsp.mason")
     end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
   },
   {
-    'williamboman/mason-lspconfig.nvim',
+    "williamboman/mason-lspconfig.nvim",
     lazy = true,
-    cmd = {"LspInstall", "LspUninstall"},
+    cmd = { "LspInstall", "LspUninstall" },
     dependencies = {
-      'neovim/nvim-lspconfig'
+      "neovim/nvim-lspconfig",
     },
     config = function()
-      require "lsp.lspconfig"
+      require("lsp.lspconfig")
     end,
   },
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     lazy = true,
-    event = {"BufReadPre", "BufNewFile"},
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-      'williamboman/mason.nvim',
+      { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+      "williamboman/mason-lspconfig.nvim",
+      "williamboman/mason.nvim",
+    },
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    cmd = { "NullLsInfo" },
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+    config = function()
+      require("lsp.null-ls")
+    end,
+  },
+
+  -- --------------- Completition ---------------
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require("lsp.cmp")
+    end,
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
     },
   },
 
--- --------------- Completition ---------------
+  { "hrsh7th/cmp-nvim-lsp", lazy = true },
+  { "hrsh7th/cmp-buffer", lazy = true },
+  { "hrsh7th/cmp-path", lazy = true },
   {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require "lsp.cmp"
-    end,
-    event = {"InsertEnter", "CmdlineEnter"},
-     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-    },
- },
-
-  {'hrsh7th/cmp-nvim-lsp', lazy = true},
-  {'hrsh7th/cmp-buffer', lazy = true},
-  {'hrsh7th/cmp-path', lazy = true},
-  {
-    'hrsh7th/cmp-cmdline',
+    "hrsh7th/cmp-cmdline",
     lazy = true,
     event = "CmdlineEnter",
   },
 
--- --------------- Snippets ---------------
+  -- --------------- Snippets ---------------
   {
     "L3MON4D3/LuaSnip",
     tag = "v1.2.1",
     build = "make install_jsregexp",
   },
 
--- --------------- Git ---------------
+  -- --------------- Git ---------------
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require "other.gitsigns"
+      require("other.gitsigns")
     end,
-    event = {"BufReadPre", "BufNewFile"},
+    event = { "BufReadPre", "BufNewFile" },
     cmd = "Gitsigns",
   },
--- --------------- Help ---------------
+  -- --------------- Help ---------------
   {
-    'folke/which-key.nvim',
+    "folke/which-key.nvim",
     cmd = "WhichKey",
     event = "VeryLazy",
     key = "<leader>",
     config = function()
-      require "ui.whichkey"
+      require("ui.whichkey")
     end,
   },
 
--- --------------- Syntax ---------------
+  -- --------------- Syntax ---------------
   {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
     cmd = {
       "TSInstall",
       "TSUninstall",
@@ -152,29 +164,29 @@ return {
       "TSInstallFromGrammar",
     },
     config = function()
-      require "syntax.treesitter"
+      require("syntax.treesitter")
     end,
-    event = {"BufReadPre", "BufNewFile"},
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require "syntax.autopairs"
+      require("syntax.autopairs")
     end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = {"BufReadPre", "BufNewFile"},
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require "syntax.blankline"
+      require("syntax.blankline")
     end,
   },
   {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
     config = function()
-      require "syntax.colorizer"
+      require("syntax.colorizer")
     end,
   },
 }
