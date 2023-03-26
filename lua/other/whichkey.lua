@@ -93,6 +93,32 @@ local mappings = {
     h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
   },
   e = { "<cmd>NvimTreeToggle<cr>", "Open Tree" },
+  g = {
+    name = "Comment",
+    c = {
+      name = "Linewise",
+      ["$"] = "End of line",
+      ["}"] = "Blank line",
+      a = {
+        name = "Curly brackets",
+        ["}"] = "Curly brackets",
+      },
+      A = "Current line and INSERT",
+      c = "Current line",
+      ip = "Full paragraph",
+      j = "Next line",
+      k = "Previous line",
+      o = "Next line and INSERT",
+      O = "Previous line and INSERT",
+      w = "Next word",
+    },
+    b = {
+      name = "Blockwise",
+      ["}"] = "Next blank line",
+      c = "Current line",
+    }
+  }
+
 }
 
 which_key.setup(setup)

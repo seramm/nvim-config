@@ -146,7 +146,7 @@ return {
     event = "VeryLazy",
     key = "<leader>",
     config = function()
-      require("ui.whichkey")
+      require("other.whichkey")
     end,
   },
   {
