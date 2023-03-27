@@ -158,6 +158,9 @@ return {
   {
     "akinsho/toggleterm.nvim",
     key = "<leader>t",
+    config = function()
+      require("util.toggleterm")
+    end,
   },
 
   -- --------------- Syntax ---------------
