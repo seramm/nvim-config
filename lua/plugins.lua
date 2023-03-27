@@ -155,6 +155,10 @@ return {
       require("Comment").setup()
     end,
   },
+  {
+    "akinsho/toggleterm.nvim",
+    key = "<leader>t",
+  },
 
   -- --------------- Syntax ---------------
   {
