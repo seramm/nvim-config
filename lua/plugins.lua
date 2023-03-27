@@ -134,7 +134,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("other.gitsigns")
+      require("util.gitsigns")
     end,
     event = { "BufReadPre", "BufNewFile" },
     cmd = "Gitsigns",
@@ -146,7 +146,7 @@ return {
     event = "VeryLazy",
     key = "<leader>",
     config = function()
-      require("other.whichkey")
+      require("util.whichkey")
     end,
   },
   {
