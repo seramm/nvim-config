@@ -139,7 +139,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     cmd = "Gitsigns",
   },
-  -- --------------- Help ---------------
+  -- --------------- Util ---------------
   {
     "folke/which-key.nvim",
     cmd = "WhichKey",
