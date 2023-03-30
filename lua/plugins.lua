@@ -202,4 +202,11 @@ return {
       require("syntax.colorizer")
     end,
   },
-}
+},
+
+  -- --------------- VimTeX ---------------
+  {
+    "lervag/vimtex",
+    ft = {"latex", "tex", "bib"},
+    lazy = true,
+  }
