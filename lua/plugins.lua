@@ -209,4 +209,7 @@ return {
     "lervag/vimtex",
     ft = {"latex", "tex", "bib"},
     lazy = true,
+    config = function()
+      require("util.vimtex")
+    end
   }
