@@ -23,6 +23,10 @@ nvim_lsp.lua_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
+nvim_lsp.texlab.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

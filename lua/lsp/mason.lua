@@ -51,8 +51,8 @@ local config_mason = {
   },
 }
 local config_mason_lspconfig = {
-  ensure_installed = { "lua_ls" },
-  automatic_installation = true,
+  ensure_installed = {},
+  automatic_installation = false,
 }
 
 mason.setup(config_mason)
@@ -81,6 +81,31 @@ mason_lspconfig.setup_handlers({
               ["/usr/share/awesome/lib"] = true,
             },
             checkThirdParty = false,
+          },
+        },
+      },
+    })
+  end,
+  ["texlab"] = function()
+    lspconfig.texlab.setup({
+      settings = {
+        texlab = {
+          auxDirectory = ".",
+          bibtexFormatter = "texlab",
+          build = {
+            args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+            executable = "latexmk",
+            forwardSearchAfter = false,
+            onSave = true,
+          },
+          chktex = {
+            onEdit = false,
+            onOpenAndSave = false,
+          },
+          diagnosticsDelay = 300,
+          formatterLineLength = 80,
+          forwardSearch = {
+            args = {},
           },
         },
       },
