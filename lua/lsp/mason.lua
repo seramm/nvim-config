@@ -18,6 +18,7 @@ local config_mason = {
   max_concurrent_installers = 4,
   registries = {
     "lua:mason-registry.index",
+    "github:mason-org/mason-registry"
   },
   providers = {
     "mason.providers.registry-api",
