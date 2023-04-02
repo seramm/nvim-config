@@ -202,4 +202,13 @@ return {
       require("syntax.colorizer")
     end,
   },
+
+  -- --------------- VimTeX ---------------
+  {
+    "lervag/vimtex",
+    lazy = false,
+    config = function()
+      require("util.vimtex")
+    end
+  }
 }
