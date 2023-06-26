@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local config = {
-  open_mapping = [[<leader>t]],
+  open_mapping = [[<m-t>]],
   hide_numbers = true,
   shade_filetypes = {},
   shade_terminals = false,

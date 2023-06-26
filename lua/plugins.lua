@@ -120,12 +120,14 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "saadparwaiz1/cmp_luasnip",
     },
   },
 
   { "hrsh7th/cmp-nvim-lsp", lazy = true },
   { "hrsh7th/cmp-buffer", lazy = true },
   { "hrsh7th/cmp-path", lazy = true },
+  { "saadparwaiz1/cmp_luasnip", lazy = true },
   {
     "hrsh7th/cmp-cmdline",
     lazy = true,
@@ -135,8 +137,12 @@ return {
   -- --------------- Snippets ---------------
   {
     "L3MON4D3/LuaSnip",
+    lazy = false,
     tag = "v1.2.1",
     build = "make install_jsregexp",
+    config = function()
+      require("lsp.luasnip")
+    end,
   },
 
   -- --------------- Git ---------------
