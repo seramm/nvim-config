@@ -113,6 +113,7 @@ return {
   -- --------------- Completition ---------------
   {
     "hrsh7th/nvim-cmp",
+    lazy = true,
     config = function()
       require("lsp.cmp")
     end,
