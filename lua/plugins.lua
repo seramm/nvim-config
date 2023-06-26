@@ -55,13 +55,22 @@ return {
   },
 
   -- --------------- Language Server Protocol ---------------
+
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    lazy = true,
+    branch = "v2.x",
+    config = function()
+      require("lsp.lsp-zero")
+    end,
+  },
   {
     "williamboman/mason.nvim",
     lazy = true,
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" },
-    config = function()
-      require("lsp.mason")
-    end,
+    -- config = function()
+    --   require("lsp.mason")
+    -- end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
@@ -73,9 +82,9 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    config = function()
-      require("lsp.lspconfig")
-    end,
+    -- config = function()
+    --   require("lsp.lspconfig")
+    -- end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -209,6 +218,6 @@ return {
     lazy = false,
     config = function()
       require("util.vimtex")
-    end
-  }
+    end,
+  },
 }
