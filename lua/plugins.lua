@@ -36,8 +36,9 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    lazy = true,
     branch = "main",
-    event = "VimEnter",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
@@ -59,6 +60,7 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     branch = "v2.x",
     config = function()
       require("lsp.lsp-zero")
@@ -137,7 +139,8 @@ return {
   -- --------------- Snippets ---------------
   {
     "L3MON4D3/LuaSnip",
-    lazy = false,
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     tag = "v1.2.1",
     build = "make install_jsregexp",
     config = function()
@@ -166,13 +169,16 @@ return {
   },
   {
     "numToStr/Comment.nvim",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("Comment").setup()
     end,
   },
   {
     "akinsho/toggleterm.nvim",
-    key = "<leader>t",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("util.toggleterm")
     end,
