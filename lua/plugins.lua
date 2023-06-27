@@ -162,7 +162,6 @@ return {
     "folke/which-key.nvim",
     lazy = true,
     cmd = "WhichKey",
-    event = "VeryLazy",
     key = "<leader>",
     config = function()
       require("util.whichkey")
@@ -220,6 +219,7 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("syntax.colorizer")
     end,
