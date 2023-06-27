@@ -106,6 +106,11 @@ return {
       require("lsp.null-ls")
     end,
   },
+  {
+    "onsails/lspkind.nvim",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
   -- --------------- Completition ---------------
   {
