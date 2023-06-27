@@ -15,13 +15,6 @@ return {
     end,
   },
   {
-    "goolord/alpha-nvim",
-    config = function()
-      require("ui.alpha")
-    end,
-    event = "VimEnter",
-  },
-  {
     "nvim-telescope/telescope.nvim",
     lazy = true,
     cmd = "Telescope",
