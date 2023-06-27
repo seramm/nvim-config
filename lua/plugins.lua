@@ -1,6 +1,9 @@
 return {
   -- --------------- Basic Plugins ---------------
-  { "nvim-tree/nvim-web-devicons" },
+  {
+    "nvim-tree/nvim-web-devicons",
+    event = "VeryLazy",
+  },
 
   -- --------------- User Interface ---------------
   {
@@ -70,9 +73,6 @@ return {
     "williamboman/mason.nvim",
     lazy = true,
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonLog" },
-    -- config = function()
-    --   require("lsp.mason")
-    -- end,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
     },
@@ -84,9 +84,6 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    -- config = function()
-    --   require("lsp.lspconfig")
-    -- end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -114,9 +111,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     lazy = true,
-    config = function()
-      require("lsp.cmp")
-    end,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -161,6 +155,7 @@ return {
   -- --------------- Util ---------------
   {
     "folke/which-key.nvim",
+    lazy = true,
     cmd = "WhichKey",
     event = "VeryLazy",
     key = "<leader>",
