@@ -111,6 +111,11 @@ return {
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
   -- --------------- Completition ---------------
   {
@@ -161,6 +166,7 @@ return {
   {
     "folke/which-key.nvim",
     lazy = true,
+    event = "VeryLazy",
     cmd = "WhichKey",
     key = "<leader>",
     config = function()
