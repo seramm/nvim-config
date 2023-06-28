@@ -15,6 +15,13 @@ return {
     end,
   },
   {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    config = function()
+      vim.notify = require("notify")
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     lazy = true,
     cmd = "Telescope",
@@ -56,24 +63,28 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     branch = "v2.x",
     config = function()
       require("lsp.lsp-zero")
     end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    cmd = "LspInfo",
-    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-      "williamboman/mason-lspconfig.nvim",
+      {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+          { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+        },
+      },
       {
         "williamboman/mason.nvim",
         build = function()
           pcall(vim.cmd, "MasonUpdate")
         end,
       },
+      { "williamboman/mason-lspconfig.nvim" },
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
     },
   },
   {
@@ -104,9 +115,9 @@ return {
     lazy = true,
     event = "InsertEnter",
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp", lazy = true },
-      { "hrsh7th/cmp-buffer", lazy = true },
-      { "hrsh7th/cmp-path", lazy = true },
+      { "hrsh7th/cmp-nvim-lsp",     lazy = true },
+      { "hrsh7th/cmp-buffer",       lazy = true },
+      { "hrsh7th/cmp-path",         lazy = true },
       { "saadparwaiz1/cmp_luasnip", lazy = true },
       {
         "hrsh7th/cmp-cmdline",
