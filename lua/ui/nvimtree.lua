@@ -3,7 +3,21 @@ if not status_ok then
   return
 end
 
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+  vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+end
+
 local config = {
+  on_attach = on_attach,
   auto_reload_on_write = true,
   hijack_cursor = false,
   hijack_unnamed_buffer_when_opening = true,
@@ -16,13 +30,6 @@ local config = {
     side = "left",
     preserve_window_proportions = false,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = "l", action = "edit" },
-        { key = "v", action = "vsplit" },
-      },
-    },
   },
   renderer = {
     highlight_opened_files = "name",
