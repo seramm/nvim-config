@@ -15,11 +15,12 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-notify",
+    "mrded/nvim-lsp-notify",
     lazy = false,
     config = function()
-      vim.notify = require("notify")
+      require("ui.notify")
     end,
+    dependencies = { "rcarriga/nvim-notify"},
   },
   {
     "nvim-telescope/telescope.nvim",
