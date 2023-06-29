@@ -16,7 +16,8 @@ return {
   },
   {
     "mrded/nvim-lsp-notify",
-    lazy = false,
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("ui.notify")
     end,
