@@ -106,6 +106,11 @@ return {
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
   },
+  {
+    "folke/trouble.nvim",
+    lazy = true,
+    dependencies = {"nvim-tree/nvim-web-devicons"},
+  },
 
   -- --------------- Completition ---------------
   {
