@@ -95,9 +95,6 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
     },
-    config = function()
-      require("lsp.null-ls")
-    end,
   },
   {
     "onsails/lspkind.nvim",

@@ -29,6 +29,3 @@ keymap("n", "<C-k>", ":resize -2<CR>", opts)
 keymap("n", "<C-j>", ":resize +2<CR>", opts)
 keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
-
--- LSP
-keymap("n", "gf", "<cmd>lua vim.lsp.buf.format{async = true}<cr>", opts)

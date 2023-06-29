@@ -7,16 +7,29 @@ lsp_zero.preset("recommended")
 
 lsp_zero.ensure_installed({
   "lua_ls",
-  "pyright"
+  "pyright",
 })
 
 lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
+  lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-lsp_zero.set_sign_icons({error = " ", warn = " ", hint = " ", info = " "})
+lsp_zero.format_mapping("gf", {
+  servers = {
+    ["null-ls"] = { "lua", "python" },
+  },
+})
+
+lsp_zero.set_sign_icons({ error = " ", warn = " ", hint = " ", info = " " })
 
 lsp_zero.setup()
+
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 4,
+    prefix = "●",
+  },
+})
 
 local status_ok_1, lsp_signature = pcall(require, "lsp_signature")
 if not status_ok_1 then
@@ -28,13 +41,27 @@ lsp_signature.setup({
     lsp_signature.on_attach({
       bind = true, -- This is mandatory, otherwise border config won't get registered.
       handler_opts = {
-        border = "rounded"
-      }
+        border = "rounded",
+      },
     }, bufnr)
   end,
 })
 
+-- Null-ls Config
+local status_ok_3, null_ls = pcall(require, "null-ls")
+if not status_ok_3 then
+  return
+end
 
+local formatting = null_ls.builtins.formatting
+
+null_ls.setup({
+  debug = false,
+  sources = {
+    formatting.stylua,
+    formatting.black,
+  },
+})
 
 -- CMP Config
 local status_ok_2, cmp = pcall(require, "cmp")
@@ -51,14 +78,14 @@ cmp.setup({
     ["<Tab>"] = lsp_zero.cmp_action().luasnip_supertab(),
     ["<S-Tab>"] = lsp_zero.cmp_action().luasnip_shift_supertab(),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm({select = false}),
+    ["<CR>"] = cmp.mapping.confirm({ select = false }),
   },
   formatting = {
-    fields = {'abbr', 'kind', 'menu'},
-    format = require('lspkind').cmp_format({
-      mode = 'symbol_text',
+    fields = { "abbr", "kind", "menu" },
+    format = require("lspkind").cmp_format({
+      mode = "symbol_text",
       maxwidth = 50,
-      ellipsis_char = '...',
-    })
-  }
+      ellipsis_char = "...",
+    }),
+  },
 })
