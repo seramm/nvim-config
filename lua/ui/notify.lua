@@ -12,3 +12,5 @@ end
 lsp_notify.setup({
   notify = notify,
 })
+
+notify("Welcome to Neovim " .. vim.split(vim.fn.execute('version'), '\n')[3]:sub(6))
