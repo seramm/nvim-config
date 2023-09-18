@@ -9,6 +9,4 @@ if not status_ok_1 then
 end
 
 
-lsp_notify.setup({
-  notify = notify,
-})
+lsp_notify.setup({})
