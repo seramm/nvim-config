@@ -20,7 +20,10 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
-    }
+    },
+    config = function ()
+      require("ui.noice")
+    end
   },
   {
     "nvim-telescope/telescope.nvim",
