@@ -21,9 +21,9 @@ return {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    config = function ()
+    config = function()
       require("ui.noice")
-    end
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -112,7 +112,7 @@ return {
   {
     "folke/trouble.nvim",
     lazy = true,
-    dependencies = {"nvim-tree/nvim-web-devicons"},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- --------------- Completition ---------------
@@ -121,9 +121,9 @@ return {
     lazy = true,
     event = "InsertEnter",
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp",     lazy = true },
-      { "hrsh7th/cmp-buffer",       lazy = true },
-      { "hrsh7th/cmp-path",         lazy = true },
+      { "hrsh7th/cmp-nvim-lsp", lazy = true },
+      { "hrsh7th/cmp-buffer", lazy = true },
+      { "hrsh7th/cmp-path", lazy = true },
       { "saadparwaiz1/cmp_luasnip", lazy = true },
       {
         "hrsh7th/cmp-cmdline",
@@ -208,6 +208,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("syntax.blankline")
