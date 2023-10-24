@@ -21,6 +21,7 @@ treesitter.setup({
     "latex",
     "lua",
     "markdown",
+    "markdown_inline",
     "python",
     "regex",
     "toml",
