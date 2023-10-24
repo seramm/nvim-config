@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: lunarmodules/luacheck@v1
         with:
-          args: --globals vim init.lua lua/*
+          args: --globals vim --files init.lua lua/*
