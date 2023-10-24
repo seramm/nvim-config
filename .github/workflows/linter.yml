@@ -1,0 +1,12 @@
+name: Linter
+
+on: [push]
+
+jobs:
+  run-linter:
+    name: Run linter
+    runs-on: ubuntu-latest
+    steps:
+      uses: lunarmodules/luacheck@v1
+      with:
+        args: init.lua lua/*
