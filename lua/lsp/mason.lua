@@ -18,7 +18,7 @@ local config_mason = {
   max_concurrent_installers = 4,
   registries = {
     "lua:mason-registry.index",
-    "github:mason-org/mason-registry"
+    "github:mason-org/mason-registry",
   },
   providers = {
     "mason.providers.registry-api",
@@ -118,9 +118,9 @@ mason_lspconfig.setup_handlers({
         analysis = {
           autoSearchPaths = true,
           diagnosticMode = "workspace",
-          useLibraryCodeForTypes = true
-        }
-      }
+          useLibraryCodeForTypes = true,
+        },
+      },
     })
   end,
 })

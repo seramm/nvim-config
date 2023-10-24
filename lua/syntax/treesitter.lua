@@ -32,7 +32,7 @@ treesitter.setup({
   ignore_install = {},
   highlight = {
     enable = true,
-    disable = {"latex"},
+    disable = { "latex" },
     additional_vim_regex_highlighting = false,
   },
 })

@@ -116,9 +116,8 @@ local mappings = {
       name = "Blockwise",
       ["}"] = "Next blank line",
       c = "Current line",
-    }
-  }
-
+    },
+  },
 }
 
 which_key.setup(setup)
