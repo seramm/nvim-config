@@ -16,4 +16,4 @@ jobs:
       - name: Install linter
         run: luarocks install luacheck
       - name: Run linter
-        run: luacheck *.lua lua/* --globals vim,client
+        run: luacheck *.lua lua/* --globals vim client
