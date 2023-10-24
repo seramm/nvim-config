@@ -3,16 +3,6 @@ if not status_ok then
   return
 end
 
-local status_ok1, lspconfig = pcall(require, "lspconfig")
-if not status_ok1 then
-  return
-end
-
-local status_ok2, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok2 then
-  return
-end
-
 local status_ok3, luasnip = pcall(require, "luasnip")
 if not status_ok3 then
   return

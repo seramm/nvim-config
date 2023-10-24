@@ -20,7 +20,11 @@ local config = {
   hide_inactive_statusline = false,
   dim_inactive = false,
   lualine_bold = false,
+  -- luacheck: no unused args
   on_colors = function(colors) end,
+  ---@param highlights Highlights
+  ---@param colors ColorScheme
+  -- luacheck: no unused args
   on_highlights = function(highlights, colors) end,
 }
 

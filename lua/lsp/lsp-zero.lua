@@ -10,7 +10,7 @@ lsp_zero.ensure_installed({
   "pyright",
 })
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr) -- luacheck: no unused args
   lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
@@ -37,7 +37,7 @@ if not status_ok_1 then
 end
 
 lsp_signature.setup({
-  on_attach = function(client, bufnr)
+  on_attach = function(client, bufnr) -- luacheck: no unused args
     lsp_signature.on_attach({
       bind = true, -- This is mandatory, otherwise border config won't get registered.
       handler_opts = {

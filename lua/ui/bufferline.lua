@@ -7,6 +7,7 @@ local config = {
   options = {
     indicator = { style = "underline" },
     diagnostics = "nvim_lsp",
+    -- luacheck: no unused args
     ---@diagnostic disable-next-line: unused-local
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
