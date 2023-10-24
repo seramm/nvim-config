@@ -71,7 +71,7 @@ mason_lspconfig.setup_handlers({
             enable = false,
           },
           diagnostics = {
-            globals = { "vim" },
+            globals = { "vim", "client" },
           },
           workspace = {
             -- Make the server aware of Neovim runtime files

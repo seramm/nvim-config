@@ -4,10 +4,16 @@ on: [push]
 
 jobs:
   run-linter:
-    name: Run linter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: lunarmodules/luacheck@v1
+        
+      - uses: leafo/gh-actions-lua@v10
         with:
-          args: --globals vim --files init.lua lua/*
+          luaVersion: "5.1.5"
+      - uses: leafo/gh-actions-luarocks@v4
+
+      - name: Install linter
+        run: luarocks install luacheck
+      - name: Run linter
+        run: luacheck *.lua lua/* --globals vim,client
