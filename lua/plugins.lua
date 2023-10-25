@@ -33,6 +33,9 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    config = function()
+      require("util.telescope")
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
