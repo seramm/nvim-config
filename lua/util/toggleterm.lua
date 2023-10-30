@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local config = {
+  direction = "float",
   open_mapping = [[<m-t>]],
   hide_numbers = true,
   shade_filetypes = {},
