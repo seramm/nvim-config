@@ -23,12 +23,16 @@ local config = {
   hijack_unnamed_buffer_when_opening = true,
   reload_on_bufenter = true,
   respect_buf_cwd = false,
+  update_focused_file = {
+    enable = true,
+    update_root = false,
+  },
   view = {
     cursorline = true,
     debounce_delay = 15,
     width = 30,
     side = "left",
-    preserve_window_proportions = false,
+    preserve_window_proportions = true,
     signcolumn = "yes",
   },
   renderer = {
