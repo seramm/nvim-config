@@ -95,7 +95,7 @@ return {
     },
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     cmd = { "NullLsInfo" },
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
