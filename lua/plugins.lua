@@ -71,7 +71,7 @@ return {
     "VonHeikemen/lsp-zero.nvim",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
-    branch = "v2.x",
+    branch = "v3.x",
     config = function()
       require("lsp.lsp-zero")
     end,

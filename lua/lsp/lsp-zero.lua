@@ -3,26 +3,45 @@ if not status_ok then
   return
 end
 
+local status_ok_1, mason = pcall(require, "mason")
+if not status_ok_1 then
+  return
+end
+
+local status_ok_2, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok_2 then
+  return
+end
+
+local status_ok_3, lspconfig = pcall(require, "lspconfig")
+if not status_ok_3 then
+  return
+end
+
 lsp_zero.preset("recommended")
 
-lsp_zero.ensure_installed({
-  "lua_ls",
-  "pyright",
+mason.setup({})
+mason_lspconfig.setup({
+  ensure_installed = {
+    "lua_ls",
+    "pyright",
+    "bashls",
+  },
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      lspconfig.lua_ls.setup(lua_opts)
+    end,
+  },
 })
 
 lsp_zero.on_attach(function(client, bufnr) -- luacheck: no unused args
   lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-lsp_zero.format_mapping("gf", {
-  servers = {
-    ["null-ls"] = { "lua", "python" },
-  },
-})
 
 lsp_zero.set_sign_icons({ error = " ", warn = " ", hint = " ", info = " " })
-
-lsp_zero.setup()
 
 vim.diagnostic.config({
   virtual_text = {
@@ -31,8 +50,8 @@ vim.diagnostic.config({
   },
 })
 
-local status_ok_1, lsp_signature = pcall(require, "lsp_signature")
-if not status_ok_1 then
+local status_ok_4, lsp_signature = pcall(require, "lsp_signature")
+if not status_ok_4 then
   return
 end
 
@@ -64,10 +83,12 @@ null_ls.setup({
 })
 
 -- CMP Config
-local status_ok_2, cmp = pcall(require, "cmp")
-if not status_ok_2 then
+local status_ok_6, cmp = pcall(require, "cmp")
+if not status_ok_6 then
   return
 end
+
+local cmp_format = lsp_zero.cmp_format()
 
 cmp.setup({
   window = {
@@ -80,12 +101,9 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   },
-  formatting = {
-    fields = { "abbr", "kind", "menu" },
-    format = require("lspkind").cmp_format({
-      mode = "symbol_text",
-      maxwidth = 50,
-      ellipsis_char = "...",
-    }),
-  },
+  formatting = cmp_format,
 })
+
+
+
+lsp_zero.setup()
