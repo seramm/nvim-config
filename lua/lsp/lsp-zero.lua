@@ -40,7 +40,6 @@ lsp_zero.on_attach(function(client, bufnr) -- luacheck: no unused args
   lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-
 lsp_zero.set_sign_icons({ error = " ", warn = " ", hint = " ", info = " " })
 
 vim.diagnostic.config({
@@ -80,7 +79,7 @@ null_ls.setup({
 
     bufcmd(bufnr, "NullFormat", function()
       vim.lsp.buf.format({
-        id=client.id,
+        id = client.id,
         timeout_ms = 10000,
       })
     end, {})
@@ -89,7 +88,7 @@ null_ls.setup({
     formatting.stylua,
     formatting.black,
     formatting.shfmt,
-  }
+  },
 })
 
 -- CMP Config
@@ -113,7 +112,5 @@ cmp.setup({
   },
   formatting = cmp_format,
 })
-
-
 
 lsp_zero.setup()
