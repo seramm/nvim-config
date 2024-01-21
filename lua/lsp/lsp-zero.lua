@@ -90,7 +90,7 @@ null_ls.setup({
     formatting.black,
     formatting.shfmt,
     formatting.prettier.with({
-      filetypes = {"javascript", "html", "json", "yaml", "markdown"}
+      filetypes = { "javascript", "html", "json", "yaml", "markdown" },
     }),
     formatting.stylelint,
   },
