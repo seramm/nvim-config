@@ -29,7 +29,7 @@ return {
     "nvim-telescope/telescope.nvim",
     lazy = true,
     cmd = "Telescope",
-    tag = "0.1.1",
+    tag = "0.1.5",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -140,7 +140,7 @@ return {
     "L3MON4D3/LuaSnip",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
-    tag = "v1.2.1",
+    version = "v2.*",
     build = "make install_jsregexp",
     config = function()
       require("lsp.luasnip")
