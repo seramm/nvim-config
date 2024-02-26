@@ -10,18 +10,18 @@ end
 
 function luasnip_supertab(select_opts)
   return cmp.mapping(function(fallback)
-    local col = vim.fn.col('.') - 1
+    local col = vim.fn.col(".") - 1
 
     if cmp.visible() then
       cmp.select_next_item(select_opts)
     elseif luasnip.expand_or_jumpable() then
       luasnip.expand_or_jump()
-    elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    elseif col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
       fallback()
     else
       cmp.complete()
     end
-  end, {'i', 's'})
+  end, { "i", "s" })
 end
 
 function luasnip_shift_supertab(select_opts)
@@ -33,12 +33,12 @@ function luasnip_shift_supertab(select_opts)
     else
       fallback()
     end
-  end, {'i', 's'})
+  end, { "i", "s" })
 end
 
 cmp.setup({
   sources = {
-    {name = 'nvim_lsp' },
+    { name = "nvim_lsp" },
   },
   window = {
     completion = cmp.config.window.bordered(),

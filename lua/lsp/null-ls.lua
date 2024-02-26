@@ -37,5 +37,3 @@ null_ls.setup({
     code_actions.eslint,
   },
 })
-
-
