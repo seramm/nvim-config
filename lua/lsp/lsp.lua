@@ -59,7 +59,7 @@ mason_lspconfig.setup({
     tsserver = function()
       lspconfig.tsserver.setup({
         capabilities = lsp_capabilities,
-        cmd = { "typescript-language-server", "--studio", "--jsx" },
+        cmd = { "typescript-language-server", "--stdio" },
       })
     end,
   },
