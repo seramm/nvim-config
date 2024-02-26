@@ -27,6 +27,7 @@ mason_lspconfig.setup({
     "pyright",
     "bashls",
     "cssls",
+    "tsserver",
   },
   handlers = {
     lsp_zero.default_setup,
@@ -90,7 +91,7 @@ null_ls.setup({
     formatting.black,
     formatting.shfmt,
     formatting.prettier.with({
-      filetypes = { "javascript", "html", "json", "yaml", "markdown" },
+      filetypes = { "typescript", "javascript", "html", "json", "yaml", "markdown" },
     }),
     formatting.stylelint,
   },
