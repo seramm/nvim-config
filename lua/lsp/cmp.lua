@@ -8,7 +8,9 @@ if not status_ok_1 then
   return
 end
 
-function luasnip_supertab(select_opts)
+local M = {}
+
+function M.luasnip_supertab(select_opts)
   return cmp.mapping(function(fallback)
     local col = vim.fn.col(".") - 1
 
@@ -24,7 +26,7 @@ function luasnip_supertab(select_opts)
   end, { "i", "s" })
 end
 
-function luasnip_shift_supertab(select_opts)
+function M.luasnip_shift_supertab(select_opts)
   return cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_prev_item(select_opts)
@@ -45,10 +47,9 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   mapping = {
-    ["<Tab>"] = luasnip_supertab(),
-    ["<S-Tab>"] = luasnip_shift_supertab(),
+    ["<Tab>"] = M.luasnip_supertab(),
+    ["<S-Tab>"] = M.luasnip_shift_supertab(),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   },
-  formatting = cmp_format,
 })
