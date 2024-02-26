@@ -86,7 +86,6 @@ return {
   { "williamboman/mason-lspconfig.nvim" },
   { "hrsh7th/nvim-cmp" },
   { "hrsh7th/cmp-nvim-lsp" },
-  { "L3MON4D3/LuaSnip" },
   {
     "nvimtools/none-ls.nvim",
     cmd = { "NullLsInfo" },

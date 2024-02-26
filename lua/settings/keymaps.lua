@@ -14,9 +14,7 @@ vim.api.nvim_set_keymap("i", "kj", "<Esc>", opts)
 
 -- Buffer navigation
 keymap("n", "<S-h>", "<cmd>bprevious<cr>", opts)
-keymap("n", "<S-k>", "<cmd>bprevious<cr>", opts)
 keymap("n", "<S-l>", "<cmd>bnext<cr>", opts)
-keymap("n", "<S-j>", "<cmd>bnext<cr>", opts)
 -- Split navigation
 keymap("n", "<m-h>", "<C-w>h", opts)
 keymap("n", "<m-j>", "<C-w>j", opts)
