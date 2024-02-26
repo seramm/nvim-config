@@ -67,17 +67,12 @@ return {
 
   -- --------------- Language Server Protocol ---------------
 
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
-    branch = "v3.x",
-    config = function()
-      require("lsp.lsp-zero")
-    end,
-    dependencies = {
       {
         "neovim/nvim-lspconfig",
+        lazy = false,
+        config = function()
+          require("lsp.lsp")
+        end,
         dependencies = {
           { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
         },
@@ -92,12 +87,13 @@ return {
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "L3MON4D3/LuaSnip" },
-    },
-  },
   {
     "nvimtools/none-ls.nvim",
     cmd = { "NullLsInfo" },
     event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("lsp.null-ls")
+    end,
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -114,7 +110,6 @@ return {
   },
   {
     "folke/trouble.nvim",
-    lazy = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
@@ -123,6 +118,9 @@ return {
     "hrsh7th/nvim-cmp",
     lazy = true,
     event = "InsertEnter",
+    config = function()
+      require("lsp.cmp")
+    end,
     dependencies = {
       { "hrsh7th/cmp-nvim-lsp", lazy = true },
       { "hrsh7th/cmp-buffer", lazy = true },
