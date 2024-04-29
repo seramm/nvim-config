@@ -18,6 +18,11 @@ if not status_ok_4 then
   return
 end
 
+local status_ok_5, lsp_lines = pcall(require, "lsp_lines")
+if not status_ok_5 then
+  return
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function(event)
@@ -65,14 +70,14 @@ mason_lspconfig.setup({
   },
 })
 
+lsp_lines.setup()
+
 vim.diagnostic.config({
-  virtual_text = {
-    spacing = 4,
-    prefix = "●",
-  },
+  virtual_text = false,
+  virtual_lines = false,
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
 for name, icon in pairs(signs) do
   name = "DiagnosticSign" .. name
   vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })

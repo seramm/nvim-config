@@ -36,3 +36,6 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 
 -- Null-ls format
 vim.keymap.set("n", "gt", "<cmd>NullFormat<cr>", opts)
+
+-- Lsp_lines
+vim.keymap.set("", "<Leader>d", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
