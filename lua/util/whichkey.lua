@@ -75,50 +75,36 @@ local opts = {
   nowait = false, -- use `nowait` when creating keymaps
 }
 local mappings = {
-  s = {
-    name = "Splits",
-    v = { "<cmd>vsplit<cr>", "Vertical Split" },
-    h = { "<cmd>split<cr>", "Horizontal Split" },
-  },
-  w = {
-    name = "Write",
-    w = { "<cmd>w<cr>", "Save file" },
-    a = { "<cmd>wa<cr>", "Save all files" },
-  },
-  f = {
-    name = "Telescope",
-    f = { "<cmd>Telescope find_files<cr>", "Find files" },
-    g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
-  },
-  e = { "<cmd>NvimTreeToggle<cr>", "Open Tree" },
-  g = {
-    name = "Comment",
-    c = {
-      name = "Linewise",
-      ["$"] = "End of line",
-      ["}"] = "Blank line",
-      a = {
-        name = "Curly brackets",
-        ["}"] = "Curly brackets",
-      },
-      A = "Current line and INSERT",
-      c = "Current line",
-      ip = "Full paragraph",
-      j = "Next line",
-      k = "Previous line",
-      o = "Next line and INSERT",
-      O = "Previous line and INSERT",
-      w = "Next word",
-    },
-    b = {
-      name = "Blockwise",
-      ["}"] = "Next blank line",
-      c = "Current line",
-    },
-  },
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Open Tree", nowait = false, remap = false },
+    { "<leader>f", group = "Telescope", nowait = false, remap = false },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", nowait = false, remap = false },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files", nowait = false, remap = false },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep", nowait = false, remap = false },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags", nowait = false, remap = false },
+    { "<leader>g", group = "Comment", nowait = false, remap = false },
+    { "<leader>gb", group = "Blockwise", nowait = false, remap = false },
+    { "<leader>gbc", desc = "Current line", nowait = false, remap = false },
+    { "<leader>gb}", desc = "Next blank line", nowait = false, remap = false },
+    { "<leader>gc", group = "Linewise", nowait = false, remap = false },
+    { "<leader>gc$", desc = "End of line", nowait = false, remap = false },
+    { "<leader>gcA", desc = "Current line and INSERT", nowait = false, remap = false },
+    { "<leader>gcO", desc = "Previous line and INSERT", nowait = false, remap = false },
+    { "<leader>gca", group = "Curly brackets", nowait = false, remap = false },
+    { "<leader>gca}", desc = "Curly brackets", nowait = false, remap = false },
+    { "<leader>gcc", desc = "Current line", nowait = false, remap = false },
+    { "<leader>gcip", desc = "Full paragraph", nowait = false, remap = false },
+    { "<leader>gcj", desc = "Next line", nowait = false, remap = false },
+    { "<leader>gck", desc = "Previous line", nowait = false, remap = false },
+    { "<leader>gco", desc = "Next line and INSERT", nowait = false, remap = false },
+    { "<leader>gcw", desc = "Next word", nowait = false, remap = false },
+    { "<leader>gc}", desc = "Blank line", nowait = false, remap = false },
+    { "<leader>s", group = "Splits", nowait = false, remap = false },
+    { "<leader>sh", "<cmd>split<cr>", desc = "Horizontal Split", nowait = false, remap = false },
+    { "<leader>sv", "<cmd>vsplit<cr>", desc = "Vertical Split", nowait = false, remap = false },
+    { "<leader>w", group = "Write", nowait = false, remap = false },
+    { "<leader>wa", "<cmd>wa<cr>", desc = "Save all files", nowait = false, remap = false },
+    { "<leader>ww", "<cmd>w<cr>", desc = "Save file", nowait = false, remap = false },
 }
 
 which_key.setup(setup)
-which_key.register(mappings, opts)
+which_key.add(mappings)
