@@ -52,12 +52,12 @@ mason_lspconfig.setup({
     "pyright",
     "bashls",
     "cssls",
-    "tsserver",
+    "ts_ls",
   },
   handlers = {
     default_setup,
-    tsserver = function()
-      lspconfig.tsserver.setup({
+    ts_ls = function()
+      lspconfig.ts_ls.setup({
         capabilities = lsp_capabilities,
         cmd = { "typescript-language-server", "--stdio" },
       })
