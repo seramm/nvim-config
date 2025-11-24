@@ -29,7 +29,7 @@ return {
     "nvim-telescope/telescope.nvim",
     lazy = true,
     cmd = "Telescope",
-    tag = "0.1.8",
+    tag = "v0.1.9",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
