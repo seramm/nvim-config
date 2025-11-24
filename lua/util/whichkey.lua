@@ -208,5 +208,5 @@ local mappings = {
   { "<leader>ww", "<cmd>w<cr>", desc = "Save file", nowait = false, remap = false },
 }
 
-which_key.setup(setup)
-which_key.add(mappings)
+wk.setup(defaults)
+wk.add(mappings)
