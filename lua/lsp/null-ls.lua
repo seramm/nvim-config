@@ -4,7 +4,6 @@ if not status_ok_5 then
 end
 
 local formatting = null_ls.builtins.formatting
-local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
   on_attach = function(client, bufnr)
@@ -34,6 +33,5 @@ null_ls.setup({
       },
     }),
     formatting.stylelint,
-    code_actions.eslint,
   },
 })
