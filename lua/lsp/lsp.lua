@@ -65,16 +65,37 @@ mason_lspconfig.setup({
   },
 })
 
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
 vim.diagnostic.config({
   virtual_text = false,
   virtual_lines = false,
 })
 
-local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
-for name, icon in pairs(signs) do
-  name = "DiagnosticSign" .. name
-  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-end
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰌵 ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+    },
+    numhl = {
+      [vim.diagnostic.severity.WARN] = "WarningMsg",
+    }
+  }
+})
 
 lsp_signature.setup({
   on_attach = function(client, bufnr) -- luacheck: no unused args
