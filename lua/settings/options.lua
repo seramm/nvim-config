@@ -1,24 +1,19 @@
-local options = {
-  cmdheight = 1,
-  showtabline = 0, -- always see tab lines
-  expandtab = true,
-  shiftwidth = 2,
-  tabstop = 2,
-  number = true, -- see lines' number
-  numberwidth = 4,
-  title = true,
-  scrolloff = 8, -- minimal number of characters left before the end of the window
-  mouse = "a",
-  cursorline = true,
-  sidescrolloff = 8,
-  smartindent = true,
-  termguicolors = true,
-  wrap = true,
-  linebreak = true,
-}
+local opt = vim.opt
 
-for key, value in pairs(options) do
-  vim.opt[key] = value
-end
-
-vim.opt.clipboard = "unnamedplus"
+opt.cmdheight = 1
+opt.showtabline = 0 -- always see tab lines
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.number = true -- see lines' number
+opt.numberwidth = 4
+opt.title = true
+opt.scrolloff = 8 -- minimal number of characters left before the end of the window
+opt.mouse = "a"
+opt.cursorline = true
+opt.sidescrolloff = 8
+opt.smartindent = true
+opt.termguicolors = true
+opt.wrap = true
+opt.linebreak = true
+opt.clipboard = "unnamedplus"
