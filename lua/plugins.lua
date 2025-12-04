@@ -111,10 +111,6 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  {
-    "ErichDonGubler/lsp_lines.nvim",
-    lazy = true,
-  },
 
   -- --------------- Completition ---------------
   {

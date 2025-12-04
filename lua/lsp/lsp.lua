@@ -18,11 +18,6 @@ if not status_ok_4 then
   return
 end
 
-local status_ok_5, lsp_lines = pcall(require, "lsp_lines")
-if not status_ok_5 then
-  return
-end
-
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "LSP actions",
   callback = function(event)
@@ -69,8 +64,6 @@ mason_lspconfig.setup({
     end,
   },
 })
-
-lsp_lines.setup()
 
 vim.diagnostic.config({
   virtual_text = false,
